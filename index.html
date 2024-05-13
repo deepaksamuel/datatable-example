@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.semanticui.css" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+</head>
+
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <!-- <th>INDX</th> -->
+                <th>eventID</th>
+                <th>detID</th>
+                <th>pid</th>
+                <th>x</th>
+                <th>y</th>
+                <th>z</th>
+                <th>t</th>
+                <th>E</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <!-- <th>INDX</th> -->
+                <th>eventID</th>
+                <th>detID</th>
+                <th>pid</th>
+                <th>x</th>
+                <th>y</th>
+                <th>z</th>
+                <th>t</th>
+                <th>E</th>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+<script>
+    $(document).ready( function () {
+    new DataTable('#example', {
+        ajax: {
+        url: 'http://127.0.0.1:3000/datatable',
+        dataSrc: 'data',
+
+
+    },
+    processing: true,
+    serverSide: true,
+    pageLength: 10,
+    columns: [
+        { data: 'eventID' },
+        { data: 'detID' },
+        { data: 'pid' },
+        { data: 'x' },
+        { data: 'y' },
+        { data: 'z' },
+        { data: 't' },
+        { data: 'E' }
+    ],
+    }
+    );
+} );
+
+// new DataTable('#example', {
+//     ajax: 'scripts/server_processing.php',
+//     processing: true,
+//     serverSide: true
+// });
+
+
+</script>
+</html>
